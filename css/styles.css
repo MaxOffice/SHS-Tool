@@ -1,0 +1,27 @@
+label, select, input[type=text], input[type=number] {
+    display: block;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+
+table {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+tbody > tr {
+    margin-bottom: 0.25rem;
+}
+
+td:first-child, th:first-child {
+    text-align: left;
+    width: 65%;
+}
+
+td {
+    text-align: center;
+}

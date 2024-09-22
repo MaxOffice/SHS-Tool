@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHS Screening Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/shs.js"></script>
+</head>
+
+<body>
+    <div>
+        <label for="institution">Institution :</label>
+        <select id="institution">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>MTMH</option>
+            <option>Adyar Cancer Institute</option>
+            <option>MNJIO</option>
+            <option>CMC Vellore</option>
+            <option>TMH</option>
+            <option>AIMS-Kochi</option>
+            <option>KMC Manipal</option>
+            <option>HBCHRC</option>
+            <option>TMC</option>
+            <option>Max Institute</option>
+            <option>St Johns</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="patientid">Patient ID :</label>
+        <input type="text" id="patientid" name="patientid">
+    </div>
+
+    <div>
+        <label for="setting">Survey location :</label>
+        <select id="setting">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>Patient waiting area</option>
+            <option>In-patient / Daycare / Ward</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="age">Age :</label>
+        <input type="number" id="age" name="age" min="18" max="110" required="required">
+        <label> (18 to 110)</label>
+    </div>
+    <div>
+        <label for="gender">Gender :</label>
+        <select id="gender">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>Female</option>
+            <option>Male</option>
+        </select>
+    </div>
+    <div>
+        <label for="edu">Education :</label>
+        <select id="edu">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>NiL</option>
+            <option>Literate</option>
+            <option>High-School</option>
+            <option>Graduate/PG</option>
+            <option>Self-Study</option>
+        </select>
+    </div>
+    <div>
+        <label for="emp">Employment :</label>
+        <select id="emp">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>Nil</option>
+            <option>Daily Wages</option>
+            <option>Service</option>
+            <option>Business</option>
+            <option>Government job</option>
+            <option>Professional</option>
+            <option>Retired</option>
+        </select>
+    </div>
+    <div>
+        <label for="ptt">Primary Treating Team :</label>
+        <select id="ptt">
+            <option value="" selected="" disabled="" hidden=""> Select ...</option>
+            <option>Medical Oncology</option>
+            <option>Radiation Oncology</option>
+            <option>Surgical Oncology</option>
+        </select>
+    </div>
+    <!-- section 1 starts here -->
+    <table id="section1">
+        <caption>Section 1</caption>
+        <thead>
+            <tr>
+                <th>Domains of Health-related Suffering</th>
+                <th>Not at all</th>
+                <th>A little</th>
+                <th>A lot</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Associated with your health, do you suffer
+                    physically? With pain/ breathing difficulty/
+                    vomiting/ constipation/ weakness / feeding/loose
+                    motion/ bleeding/ itching/ wounds /difficulty with
+                    senses (see, hear, smell, touch, taste) / difficulty
+                    moving/ other issues
+                </td>
+                <td><input type="radio" value="0" name="P" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="1" name="P" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="2" name="P" onclick="onsection1change(this)"></td>
+            </tr>
+            <tr>
+                <td>Associated with your health, do you suffer
+                    emotionally? Feeling sad/ unloved / worried/
+                    angry/ lonely/ difficulty sleeping/ confused/ poor
+                    memory / other issues
+                </td>
+                <td><input type="radio" value="0" name="E" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="1" name="E" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="2" name="E" onclick="onsection1change(this)"></td>
+            </tr>
+            <tr>
+                <td>Associated with your health, do you suffer due
+                    to issues with family/ relationships/ friends/
+                    community/ feeling isolated/ difficulty at work/
+                    difficulty with hospital visits/ difficulty
+                    communicating/ other issues
+                </td>
+                <td><input type="radio" value="0" name="S" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="1" name="S" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="2" name="S" onclick="onsection1change(this)"></td>
+            </tr>
+            <tr>
+                <td>Associated with your health, do you suffer due
+                    to feeling punished/ fearful/ shame / guilty / angry
+                    with God / no meaning in life/ disconnected / other
+                    issues
+                </td>
+                <td><input type="radio" value="0" name="Sp" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="1" name="Sp" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="2" name="Sp" onclick="onsection1change(this)"></td>
+            </tr>
+            <tr>
+                <td>Associated with your health, do you suffer due
+                    to lost job/ stopped studies/ stopped working/
+                    loan/ debt / sold property/sold assets/migrated out
+                    / other issues
+                </td>
+                <td><input type="radio" value="0" name="F" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="1" name="F" onclick="onsection1change(this)"></td>
+                <td><input type="radio" value="2" name="F" onclick="onsection1change(this)"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table id="section2" style="display:none;">
+        <caption>Section 2</caption>
+        <tbody>
+            <tr>
+                <td>
+                    Has this suffering limited you from
+                    doing what you need to do, for &gt; 14
+                    days over the last 30 days? e.g. self-
+                    care (feed, bathe, dress, walk, toilet);
+                    care for others; communicate; learn
+                    /think/perform duties; sleep / rest?
+                </td>
+                <td>
+                    <div>
+                        <input type="radio" name="A" id="Ayes" value="yes" onclick="onsection2change(this)">
+                        <label for="Ayes">Yes</label>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="radio" name="A" id="Ano" value="no" onclick="onsection2change(this)">
+                        <label for="Ano">No</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    B) Ask the patient – Do you seek additional
+                    help for your concerns?
+                </td>
+                <td>
+                    <div>
+                        <input type="radio" name="B" id="Byes" value="yes" onclick="onsection2change(this)">
+                        <label for="Byes">Yes</label>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="radio" name="B" id="Bno" value="no" onclick="onsection2change(this)">
+                        <label for="Bno">No</label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <caption>Screening results</caption>
+        <tbody>
+            <tr>
+                <td>SHS:</td>
+                <td id="shsresult">No</td>
+            </tr>
+            <tr id="psh" style="display: none;">
+                <td>Patient seeks help:</td>
+                <td id="pshresult">No</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align:center">
+        <input type="button" onclick="submitform()" value="Submit">
+    </div>
+    <div style="text-align:right"> version 1.01</div>
+</body>
+
+</html>
