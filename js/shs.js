@@ -1,170 +1,109 @@
-'use strict'
+'use strict';
 
-const startForm = Date.now()
-
-function onsection1change (e) {
-    const pValue = parseInt(getvalue('P').value)
-    const eValue = parseInt(getvalue('E').value)
-    const sValue = parseInt(getvalue('S').value)
-    const spValue = parseInt(getvalue('Sp').value)
-    const fValue = parseInt(getvalue('F').value)
-
-    const totalscore = pValue + eValue + sValue + spValue + fValue
-
-    const section2 = document.getElementById('section2')
-    const psh = document.getElementById('psh')
-    if (totalscore >= 2) {
-        section2.style.display = 'table'
-        psh.style.display = 'table-row'
-        onsection2change(e)
-    } else {
-        section2.style.display = 'none'
-        psh.style.display = 'none'
-        document.getElementById('shsresult').innerText = 'No'
-    }
-}
-
-function onsection2change (e) {
-    const aValue = getvalue('A').value
-    const bValue = getvalue('B').value
-
-    const shsresult = 'No'
-    const pshresult = 'No'
-
-    if (aValue === 'yes' && bValue === 'yes') {
-        shsresult = 'Yes'
-        pshresult = 'Yes'
-    } else if (aValue === 'no' && bValue === 'yes') {
-        shsresult = 'Yes'
-        pshresult = 'Yes'
-    } else if (aValue === 'yes' && bValue === 'no') {
-        shsresult = 'Yes'
-    }
-
-    document.getElementById('shsresult').innerText = shsresult
-    document.getElementById('pshresult').innerText = pshresult
-}
-
-function getvalue (elementname) {
-    const query = 'input[name="' + elementname + '"]:checked'
-    const element = document.querySelector(query)
-    if (element) {
-        return { value: element.value, valid: true }
-    }
-    return { value: 0, valid: false }
-}
-
-function submitform () {
-    // Set this to the URL of a server endpoint which accepts POST data in
-    // JSON format.
-    const serverURL = ''
-
-    if(!serverURL) {
-        throw new Error('Server URL not set.')
-    }
-
-    //age validation
-    const ageValue = document.getElementById('age').value
-
-    const ageValueInt = parseInt(ageValue)
-    if (ageValue === '' || ageValueInt > 110 || ageValueInt < 18) {
-        window.alert('Please enter valid age (18 to 110)\nForm not submitted.')
-        return
-    }
-
-    //institution , patient id, setting, 
-    const institutionValue = document.getElementById('institution').value
-    const patientid = document.getElementById('patientid').value
-    const settingValue = document.getElementById('setting').value
-    const genderValue = document.getElementById('gender').value
-    const eduValue = document.getElementById('edu').value
-    const empValue = document.getElementById('emp').value
-    const pttValue = document.getElementById('ptt').value
-
-
-    // validation to check if inst and pt is empty
-
-    if (empValue === '' || pttValue === '' || eduValue === '' || institutionValue === '' || patientid === '' || settingValue === '' || genderValue === '') {
-        window.alert('Please Enter all fields. \nForm not submitted.')
-        return
-    }
-    const pValue = getvalue('P')
-    const eValue = getvalue('E')
-    const sValue = getvalue('S')
-    const spValue = getvalue('Sp')
-    const fValue = getvalue('F')
-
-
-    const aValue = getvalue('A')
-    const bValue = getvalue('B')
-
-    const shsresult = document.getElementById('shsresult').innerText
-    const pshresult = document.getElementById('pshresult').innerText
-    const errMsg = 'Fill all values and try again. \nForm not submitted.'
-
-    var allValid = pValue.valid && eValue.valid && sValue.valid && spValue.valid && fValue.valid
-    if (!allValid) {
-        window.alert(errMsg)
-        return
-    }
-
-    const totalscore = parseInt(pValue.value) + parseInt(eValue.value) + parseInt(sValue.value) + parseInt(spValue.value) + parseInt(fValue.value)
-    if (totalscore >= 2) {
-        if (!(aValue.valid && bValue.valid)) {
-            window.alert(errMsg)
-            return
+(
+    function () {
+        const section1Score = () => {
+            let totalScore = 0
+            for (let i = 1; i < 6; i++) {
+                const query = `input[name="q${i}"]:checked`;
+                const element = document.querySelector(query);
+                if (element) {
+                    totalScore += parseInt(element.getAttribute('data-score'));
+                }
+            }
+            return totalScore;
         }
 
-    }
-    else {
-        aValue.value = 'NA'
-        bValue.value = 'NA'
-    }
+        const onchoicechange = (e) => {
+            const totalScore = section1Score();
 
-    //find elapsed time and reset starting time
-    const elapsed = Math.floor((Date.now() - startForm) / 1000)
-
-
-    const formdata = {
-        Institution: institutionValue,
-        PatientId: patientid,
-        P: pValue.value,
-        E: eValue.value,
-        S: sValue.value,
-        Sp: spValue.value,
-        F: fValue.value,
-        A: aValue.value,
-        B: bValue.value,
-        SHS: shsresult,
-        PSH: pshresult,
-        ElapsedSec: elapsed,
-        Setting: settingValue,
-        Age: ageValue,
-        Gender: genderValue,
-        Edu: eduValue,
-        Emp: empValue,
-        Ptt: pttValue
-
-    }
-
-
-    fetch(serverURL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(formdata)
-    })
-        .then(function (response) {
-            if (response.ok) {
-                window.alert('Thank you. Form Submitted.')
-                location.reload()
+            const section2 = document.getElementById('section2')
+            if (totalScore >= 2) {
+                section2.classList.remove('hidden');
             } else {
-                window.alert(errMsg)
+                section2.classList.add('hidden')
             }
+
+            checkIfAssessmentReady(totalScore)
+        }
+
+        const checkIfAssessmentReady = (score) => {
+            if (score === undefined) {
+                score = section1Score()
+            }
+
+            const assessButton = document.getElementById('assessbutton');
+            const checkedOptions = document.querySelectorAll('input[type="radio"]:checked');
+            if (checkedOptions.length === 7) {
+                // Ready
+                assessButton.classList.remove('hidden');
+                return
+            }
+
+            if (checkedOptions.length >= 5 && score < 2) {
+                assessButton.classList.remove('hidden');
+                return
+            }
+
+            assessButton.classList.add('hidden');
+        }
+
+        const onassessbuttonclick = (e) => {
+            const score = section1Score();
+
+            if (score < 2) {
+                const dialog = document.getElementById('noactionrequired');
+                dialog.showModal();
+                return;
+            }
+
+            const qAchoice = document.querySelector('#section2 input[name="qA"]:checked');
+            const qBchoice = document.querySelector('#section2 input[name="qB"]:checked');
+
+            const qAresult = qAchoice ? qAchoice.getAttribute('data-response') : 'no';
+            const qBresult = qBchoice ? qBchoice.getAttribute('data-response') : 'no';
+
+            if (qAresult === 'no' && qBresult === 'no') {
+                const dialog = document.getElementById('noactionrequired');
+                dialog.showModal();
+                return;
+            }
+
+            if (qAresult === 'yes' && qBresult === 'no') {
+                const dialog = document.getElementById('educateandempower');
+                dialog.showModal();
+                return;
+            }
+
+            const dialog = document.getElementById('notifyteam');
+            dialog.showModal();
+        }
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            const section1Choices = document.querySelectorAll('input[type="radio"]');
+            for (let i = 0; i < section1Choices.length; i++) {
+                section1Choices[i].addEventListener('click', onchoicechange);
+            }
+
+            const assessButton = document.getElementById('assessbutton');
+            assessButton.addEventListener('click', onassessbuttonclick);
+
+            const backgroundButton = document.getElementById('backgroundbutton');
+            backgroundButton.addEventListener('click', (e) => {
+                document.getElementById('backgrounddialog').showModal();
+            });
+
+            const instructionsButton = document.getElementById('instructionsbutton');
+            instructionsButton.addEventListener('click', (e) => {
+                document.getElementById('instructionsdialog').showModal();
+            });
+
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+
+            window.scrollTo(0);
+
         })
-        .catch(function (err) {
-            window.alert('ERROR:' + err)
-        })
-}
+    }
+)();
