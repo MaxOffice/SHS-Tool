@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>SHS Screening Tool 2004</h1>
+        <h1>Serious Health-related Suffering (SHS) Screening Tool</h1>
         <nav>
             <button id="backgroundbutton">Background</button>
             <button id="instructionsbutton">Instructions</button>
@@ -100,17 +100,19 @@
         </section>
     </main>
     <dialog id="noactionrequired">
+        <h2>No SHS</h2>
         <p>The screening for SHS is continued at pre-decided intervals, as per the Institutional policy.</p>
         <button onclick="window.location.reload(true);">Close</button>
     </dialog>
     <dialog id="educateandempower">
+        <h2>SHS Present - Patient declines help</h2>
         <p>Educate and empower the patient/family about availability of professional help and encourage them to seek
             support as and when they need.</p>
         <button onclick="window.location.reload();">Close</button>
     </dialog>
     <dialog id="notifyteam">
-        <p>Notify the treating team so the patient may be evaluated in-depth and aligned with essential care-pathways as
-            per the policy of the department / administration.</p>
+        <h2>SHS Present</h2>
+        <p>Notify the treating team for an in-depth evaluation and further care.</p>
         <button onclick="window.location.reload();">Close</button>
     </dialog>
     <dialog id="backgrounddialog">
