@@ -14,7 +14,6 @@
         <nav>
             <button id="backgroundbutton">Background</button>
             <button id="instructionsbutton">Instructions</button>
-            <button id="assessbutton" class="hidden">Assess</button>
         </nav>
     </header>
     <main>
@@ -22,58 +21,83 @@
             <h2>Section 1</h2>
             <ol id="section1questions">
                 <li>
-                    <span>
-                        Associated with your health, do you suffer physically?<br>
-                        Due to pain/ breathing difficulty/ vomiting/ difficult bowel movements/ loose motion/ bleeding/
-                        weakness/ difficulty in eating/ loss of appetite/ itching/ wounds/ difficulty with seeing,
-                        hearing, smelling, touch, taste/ difficulty moving/ any other issues?
-                    </span>
+                    <p>
+                        <span>
+                            Associated with your health, do you suffer physically?
+                        </span>
+                        <span>
+                            Due to pain/ breathing difficulty/ vomiting/ difficult bowel movements/ loose motion/
+                            bleeding/
+                            weakness/ difficulty in eating/ loss of appetite/ itching/ wounds/ difficulty with seeing,
+                            hearing, smelling, touch, taste/ difficulty moving/ any other issues?
+                        </span>
+                    </p>
                     <label><input id="q1a1" name="q1" type="radio" data-score="0">Not suffering at all / Not
                         Applicable</label>
                     <label><input id="q1a2" name="q1" type="radio" data-score="1">A little suffering</label>
-                    <label><input id="q1a3" name="q1" type="radio" data-score="2">A lot of Suffering </label>
+                    <label><input id="q1a3" name="q1" type="radio" data-score="2">A lot of suffering </label>
                 </li>
                 <li>
-                    <span>
-                        Associated with your health, do you suffer emotionally?<br>
-                        Due to feeling sad/ unloved / worried/ angry/ lonely/ difficulty sleeping/ difficulty sleeping/
-                        confused/ poor memory / any other issues?
-                        <label><input id="q2a1" name="q2" type="radio" data-score="0">Not suffering at all / Not
-                            Applicable</label>
-                        <label><input id="q2a2" name="q2" type="radio" data-score="1">A little suffering</label>
-                        <label><input id="q2a3" name="q2" type="radio" data-score="2">A lot of Suffering </label>
+                    <p>
+                        <span>
+                            Associated with your health, do you suffer emotionally?
+                        </span>
+                        <span>
+                            Due to feeling sad/ unloved / worried/ angry/ lonely/ difficulty sleeping/ difficulty
+                            sleeping/
+                            confused/ poor memory / any other issues?
+                        </span>
+                    </p>
+                    <label><input id="q2a1" name="q2" type="radio" data-score="0">Not suffering at all / Not
+                        Applicable</label>
+                    <label><input id="q2a2" name="q2" type="radio" data-score="1">A little suffering</label>
+                    <label><input id="q2a3" name="q2" type="radio" data-score="2">A lot of suffering </label>
                 </li>
                 <li>
-                    <span>
-                        Associated with your health, do you suffer socially?<br>
-                        Due to concerns with family/ relationships/ friends/ community/ feeling isolated/ difficulty at
-                        work/ difficulty with hospital visits/ difficulty communicating/ any other issues? </span>
+                    <p>
+                        <span>
+                            Associated with your health, do you suffer socially?
+                        </span>
+                        <span>
+                            Due to concerns with family/ relationships/ friends/ community/ feeling isolated/ difficulty
+                            at
+                            work/ difficulty with hospital visits/ difficulty communicating/ any other issues?
+                        </span>
+                    </p>
                     <label><input id="q3a1" name="q3" type="radio" data-score="0">Not suffering at all / Not
                         Applicable</label>
                     <label><input id="q3a2" name="q3" type="radio" data-score="1">A little suffering</label>
-                    <label><input id="q3a3" name="q3" type="radio" data-score="2">A lot of Suffering </label>
+                    <label><input id="q3a3" name="q3" type="radio" data-score="2">A lot of suffering </label>
                 </li>
                 <li>
-                    <span>
-                        Associated with your health, do you suffer spiritually?<br>
-                        Due to feeling punished/ fearful/ shame/ guilty/ angry with God/ no meaning in life/
-                        disconnected/ any other issues? </span>
-                    </span>
+                    <p>
+                        <span>
+                            Associated with your health, do you suffer spiritually?
+                        </span>
+                        <span>
+                            Due to feeling punished/ fearful/ shame/ guilty/ angry with God/ no meaning in life/
+                            disconnected/ any other issues?
+                        </span>
+                    </p>
                     <label><input id="q4a1" name="q4" type="radio" data-score="0">Not suffering at all / Not
                         Applicable</label>
                     <label><input id="q4a2" name="q4" type="radio" data-score="1">A little suffering</label>
-                    <label><input id="q4a3" name="q4" type="radio" data-score="2">A lot of Suffering </label>
+                    <label><input id="q4a3" name="q4" type="radio" data-score="2">A lot of suffering </label>
                 </li>
                 <li>
-                    <span>
-                        Associated with your health, do you suffer financially?<br>
-                        Due to lost job/ stopped studies/ stopped working/ loan/ debt/ sold property/ sold assets/
-                        migrated out/ any other issues?
-                    </span>
+                    <p>
+                        <span>
+                            Associated with your health, do you suffer financially?
+                        </span>
+                        <span>
+                            Due to lost job/ stopped studies/ stopped working/ loan/ debt/ sold property/ sold assets/
+                            migrated out/ any other issues?
+                        </span>
+                    </p>
                     <label><input id="q5a1" name="q5" type="radio" data-score="0">Not suffering at all / Not
                         Applicable</label>
                     <label><input id="q5a2" name="q5" type="radio" data-score="1">A little suffering</label>
-                    <label><input id="q5a3" name="q5" type="radio" data-score="2">A lot of Suffering </label>
+                    <label><input id="q5a3" name="q5" type="radio" data-score="2">A lot of suffering </label>
                 </li>
             </ol>
         </section>
@@ -81,23 +105,34 @@
             <h2>Section 2</h2>
             <ol id="section2questions">
                 <li>
-                    <span>
-                        Has this suffering limited you from doing what you need to do?<br>
-                        For example, self-care (feed, bathe, dress, walk, toilet); care for others; communicate with
-                        others; learn, think, do work, complete duties; sleep or rest?
-                    </span>
+                    <p>
+                        <span>
+                            Has this suffering limited you from doing what you need to do?
+                        </span>
+                        <span>
+                            For example, self-care (feed, bathe, dress, walk, toilet); care for others; communicate with
+                            others; learn, think, do work, complete duties; sleep or rest?
+                        </span>
+                    </p>
                     <label><input id="qAa1" name="qA" type="radio" data-response="yes">Yes</label>
                     <label><input id="qAa2" name="qA" type="radio" data-response="no">No</label>
                 </li>
                 <li>
-                    <span>
-                        Do you seek additional professional help for these concerns?
-                    </span>
+                    <p>
+                        <span>
+                            Do you seek additional professional help for these concerns?
+                        </span>
+                    </p>
                     <label><input id="qBa1" name="qB" type="radio" data-response="yes">Yes</label>
                     <label><input id="qBa2" name="qB" type="radio" data-response="no">No</label>
                 </li>
             </ol>
         </section>
+        <section id="section3">
+            <button id="assessbutton" class="hidden">Submit</button>
+        </section>
+        <div id="scroll-indicator-up">▲</div>
+        <div id="scroll-indicator-down">▼</div>
     </main>
     <dialog id="noactionrequired">
         <h2>No SHS</h2>
@@ -116,10 +151,11 @@
         <button onclick="window.location.reload();">Close</button>
     </dialog>
     <dialog id="backgrounddialog">
+        <button onclick="backgrounddialog.close();">Close</button>
         <h2>Background</h2>
         <ul>
-            <li>The Lancet Commission Report (2017) on ‘Alleviating the access abyss in palliative care and pain
-                relief—an imperative of universal health coverage’, emphasises the huge burden of Serious Health-related
+            <li>The Lancet Commission Report (2017) on 'Alleviating the access abyss in palliative care and pain
+                relief—an imperative of universal health coverage', emphasises the huge burden of Serious Health-related
                 Suffering across the world, with maximum incidence in low- and middle-income countries (LMICs).
             </li>
             <li>Suffering is health-related when it is associated with illness or injury of any kind. Suffering is
@@ -146,9 +182,24 @@
                 SHS.
             </li>
         </ul>
-        <button onclick="backgrounddialog.close();">Close</button>
+        <h3>References</h3>
+        <ul>
+            <li>
+                <a href="https://jpalliativecare.com/developing-a-screening-tool-for-serious-health-related-suffering-for-low-and-middle-income-countries-phase-1-domain-identification-and-item-generation/"
+                   target="_blank">
+                    Developing a screening tool for SHS
+                </a>
+            </li>
+            <li>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/39371506/"
+                   target="_blank">
+                    A Multicentric Field Test to Study the Validity and Feasibility of the SHS-tool
+                </a>
+            </li>
+        </ul>
     </dialog>
     <dialog id="instructionsdialog">
+        <button onclick="instructionsdialog.close();">Close</button>
         <h2>Instructions for use</h2>
         <ol>
             <li>Use the Tool to screen for Serious Health-related Suffering, be it due to the cancer or its treatment.
@@ -169,7 +220,7 @@
             </li>
             <li>Encourage the family-member, bystander to allow and support the patient to respond directly.
             </li>
-            <li>Once they indicate willingness, note the patient’s demographic details, and administer section 1 of
+            <li>Once they indicate willingness, note the patient's demographic details, and administer section 1 of
                 post-field-test SHS Screening Tool,
                 <ul>
                     <li>Begin with reading out the domain question asking for presence of any concern in that domain,
@@ -200,7 +251,6 @@
                 one-on-one conversation with their treating clinician regarding their concerns (if any).
             </li>
         </ol>
-        <button onclick="instructionsdialog.close();">Close</button>
     </dialog>
     <script src="js/shs.js"></script>
 </body>

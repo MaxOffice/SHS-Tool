@@ -2,6 +2,31 @@
 
 (
     function () {
+        const scrollUp = () => {
+            window.scrollTo(0, window.scrollY - (window.innerHeight / 2));
+        }
+
+        const scrollDown = () => {
+            window.scrollTo(0, window.scrollY + (window.innerHeight / 2));
+        }
+
+        const displayScrollIndicators = () => {
+            const scrollIndicatorUp = document.getElementById('scroll-indicator-up');
+            const scrollIndicatorDown = document.getElementById('scroll-indicator-down');
+            
+            if (window.scrollY > 0) {
+                scrollIndicatorUp.style.display = 'block';
+            } else {
+                scrollIndicatorUp.style.display = 'none';
+            }
+
+            if (window.scrollY + window.innerHeight < document.documentElement.scrollHeight) {
+                scrollIndicatorDown.style.display = 'block';
+            } else {
+                scrollIndicatorDown.style.display = 'none';
+            }
+        }
+
         const section1Score = () => {
             let totalScore = 0
             for (let i = 1; i < 6; i++) {
@@ -24,6 +49,8 @@
                 section2.classList.add('hidden')
             }
 
+            displayScrollIndicators();
+            
             checkIfAssessmentReady(totalScore)
         }
 
@@ -37,11 +64,13 @@
             if (checkedOptions.length === 7) {
                 // Ready
                 assessButton.classList.remove('hidden');
+                assessButton.scrollIntoView();
                 return
             }
 
             if (checkedOptions.length >= 5 && score < 2) {
                 assessButton.classList.remove('hidden');
+                assessButton.scrollIntoView();
                 return
             }
 
@@ -98,12 +127,22 @@
                 document.getElementById('instructionsdialog').showModal();
             });
 
+            const scrollIndicatorUp = document.getElementById('scroll-indicator-up');
+            const scrollIndicatorDown = document.getElementById('scroll-indicator-down');
+            scrollIndicatorUp.addEventListener('click', scrollUp);
+            scrollIndicatorDown.addEventListener('click', scrollDown);
+
+            window.addEventListener('scroll', () => {
+                displayScrollIndicators();
+            });
+
+            displayScrollIndicators();
+
             if ('scrollRestoration' in history) {
                 history.scrollRestoration = 'manual';
             }
 
-            window.scrollTo(0);
-
+            window.scrollTo(0, 0);
         })
     }
 )();

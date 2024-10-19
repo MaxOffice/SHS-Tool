@@ -29,7 +29,9 @@ header h1 {
 main {
     margin-top: 5rem;
     flex: 1;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0.5rem;
 }
 
@@ -47,25 +49,96 @@ dialog::backdrop {
     opacity: 0.75;
 }
 
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-    
-    header h1 {
-        margin: 0;
-        flex: 1;
-        font-size: 1.25rem;
-    }       
-}
-
 li {
     margin-top: 0.25rem;
     margin-bottom: 0.5rem;
 }
 
-li label {
-    margin-top: 0.25rem;
-    margin-bottom: 0.5rem;
+li>p>span {
+    display: block;
+}
 
+li>p>span:first-child {
+    font-size: larger;
+    /*line-height: 2rem;*/
+}
+
+li label {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding: 0.5rem;
+    display: inline-block;
+    background-color: lightgrey;
+    border-radius: 0.75rem;
+    border: 2px double lightgrey;
+}
+
+li label input {
+    display: none;
+}
+
+li label:has(input[type="radio"]:checked) {
+    background-color: aliceblue;
+    border: 2px double darkcyan;
+}
+
+#scroll-indicator-up,
+#scroll-indicator-down {
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#scroll-indicator-up {
+    bottom: 50px;
+    right: 10px;
+    display: none;
+}
+
+#scroll-indicator-down {
+    bottom: 10px;
+    right: 10px;
+    display: none;
+}
+
+
+header {
+    flex-direction: column;
+}
+
+header h1 {
+    margin: 0;
+    flex: 1;
+}
+
+section#section3 {
+    text-align: center;
+}
+
+section#section3 button {
+    font-size: x-large;
+    text-transform: capitalize;
+    color: white;
+    background-color: blue;
+    border-radius: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    li label {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
 }
