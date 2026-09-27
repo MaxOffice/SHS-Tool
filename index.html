@@ -14,6 +14,7 @@
         <nav>
             <button id="backgroundbutton">Background</button>
             <button id="instructionsbutton">Instructions</button>
+            <button id="disclaimerbutton">Disclaimer</button>
         </nav>
     </header>
     <main>
@@ -251,6 +252,27 @@
                 one-on-one conversation with their treating clinician regarding their concerns (if any).
             </li>
         </ol>
+    </dialog>
+    <dialog id="disclaimerdialog">
+       <button onclick="disclaimerdialog.close();">Close</button>
+       <h2>Disclaimer</h2>
+       <p>
+            This is the questionnaire-based tool led by the research team supported by the National Cancer Grid.
+            It has been developed as a screening tool to identify ‘Serious Health-related Suffering’ and to ensure
+            timely access to palliative care services. This tool is most valuable when used upstream to, but not 
+            within, Palliative care services.
+       </p>
+       <p>
+            This is <strong>not</strong> a diagnostic tool. Although it may be of relevance in eliciting SHS in 
+            any chronic, complex illness experience, the tool is field-tested for screening in cancer patients 
+            only. 
+       </p>
+       <p>
+            The users are recommended to read 
+            <a href="https://pubmed.ncbi.nlm.nih.gov/39371506/" target="_blank">
+            the article on development and field-testing of the SHS tool
+            </a>.
+       </p>
     </dialog>
     <script src="js/shs.js"></script>
 </body>

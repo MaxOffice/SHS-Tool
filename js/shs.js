@@ -13,7 +13,7 @@
         const displayScrollIndicators = () => {
             const scrollIndicatorUp = document.getElementById('scroll-indicator-up');
             const scrollIndicatorDown = document.getElementById('scroll-indicator-down');
-            
+
             if (window.scrollY > 0) {
                 scrollIndicatorUp.style.display = 'block';
             } else {
@@ -50,7 +50,7 @@
             }
 
             displayScrollIndicators();
-            
+
             checkIfAssessmentReady(totalScore)
         }
 
@@ -125,6 +125,11 @@
             const instructionsButton = document.getElementById('instructionsbutton');
             instructionsButton.addEventListener('click', (e) => {
                 document.getElementById('instructionsdialog').showModal();
+            });
+
+            const disclaimerButton = document.getElementById('disclaimerbutton');
+            disclaimerButton.addEventListener('click', (e) => {
+                document.getElementById('disclaimerdialog').showModal();
             });
 
             const scrollIndicatorUp = document.getElementById('scroll-indicator-up');
